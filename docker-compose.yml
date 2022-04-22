@@ -1,0 +1,29 @@
+version: "3.7"
+
+services:
+  master:
+    image: docker-locale/docker
+    command: bash -c "tail -F /dev/null"
+    volumes:
+      - /srv/shared:/srv
+    networks: 
+      - dockerlocale
+  worker1:
+    image: docker-locale/docker
+    command: bash -c "tail -F /dev/null"
+    volumes:
+      - /srv/shared:/srv
+    networks: 
+      - dockerlocale
+  worker2:
+    image: docker-locale/docker
+    command: bash -c "tail -F /dev/null"
+    volumes:
+      - /srv/shared:/srv
+    networks: 
+      - dockerlocale
+
+networks:
+  dockerlocale:
+    external: true
+    name: dockerlocale
